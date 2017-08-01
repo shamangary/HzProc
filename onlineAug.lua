@@ -27,15 +27,17 @@ end
 function onlineAug:convert()
    return t.Compose{
     t.Warp(0.3, 20, 1.2, 1.2),
-    --t.RandomCrop(224, 0),
-    --t.RandomSizedCrop(55),
+    --[[
+    t.RandomCrop(224, 0),
+    t.RandomSizedCrop(55),
     t.ColorJitter({
       brightness = 0.4,
       contrast = 0.4,
       saturation = 0.4,
     }),
     t.Lighting(0.5, self.pca.eigval, self.pca.eigvec),
-    --t.ColorNormalize(self.meanstd),
+    t.ColorNormalize(self.meanstd),
+    --]]
     t.HorizontalFlip(0.5),
    }
 end
