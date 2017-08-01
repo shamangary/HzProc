@@ -1,4 +1,6 @@
 # Online augmentation layer for nn.Sequential()
+
+
 onlineAug.lua
 -
 How to use?
@@ -13,9 +15,18 @@ Copy 'onlineAug.lua' to where you want
 require('./onlineAug.lua')
 
 net = nn.Sequential()
-net:add(nn.onlineAug)
+net:add(nn.onlineAug) -- add to the 1st layer for image input
 ```
-
+Training
+-
+```
+net:training() -- augmentation is activated when training flag is true
+```
+Testing
+-
+```
+net:evaluate() -- identity operation for testing
+```
 
 
 #  HzProc
