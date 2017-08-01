@@ -20,6 +20,7 @@ function onlineAug:__init()
        { -0.5836, -0.6948,  0.4203 },
      },
    }
+   self.myconverter = self:convert()
 
 end
 
@@ -39,14 +40,17 @@ function onlineAug:convert()
    }
 end
 
+function onlineAug:cuda()
+end
+
 function onlineAug:updateOutput(input)
+
    self.output = input.new():resizeAs(input):fill(0)
    if self.train then
       for i=1,input:size(1) do
          -- load the image
-         I_input = input[{1,{},{},{}}]
-         myconverter = self:convert()
-         I_output = myconverter(I_input)
+         I_input = input[{1,{},{},{}}]         
+         I_output = self.myconverter(I_input)
          self.output[{1,{},{},{}}] = I_output:clone()
       end
       
