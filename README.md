@@ -1,3 +1,23 @@
+# Online augmentation layer for nn.Sequential()
+onlineAug.lua
+-
+How to use?
+```
+# Step.1
+Install hzproc
+
+# Step.2
+Copy 'onlineAug.lua' to where you want
+
+# Step.3
+require('./onlineAug.lua')
+
+net = nn.Sequential()
+net:add(nn.onlineAug)
+```
+
+
+
 #  HzProc
 Created by [Hang Zhang](http://www.hangzh.com)
 
