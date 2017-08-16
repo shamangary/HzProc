@@ -15,7 +15,7 @@ Copy 'onlineAug.lua' to where you want
 require('./onlineAug.lua')
 
 net = nn.Sequential()
-net:add(nn.onlineAug) -- add to the 1st layer for image input
+net:add(nn.onlineAug()) -- add to the 1st layer for image input
 ```
 Training
 -
